@@ -194,7 +194,10 @@ img {
 .nav-btn-portal {
     background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
     color: var(--color-primary);
-    padding: 14px 32px;
+    padding: 14px 40px;
+    min-width: 160px;
+    text-align: center;
+    display: inline-block;
     border-radius: 4px;
     font-weight: 700;
     font-size: 14px;
