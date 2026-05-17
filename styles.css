@@ -870,9 +870,54 @@ img {
 @media (max-width: 768px) {
     .navbar-menu {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--color-white);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 1rem 0;
+        z-index: 999;
     }
-    
+
+    .navbar-menu.active {
+        display: flex;
+    }
+
+    .navbar-menu li {
+        width: 100%;
+        text-align: left;
+    }
+
+    .navbar-menu a {
+        display: block;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .dropdown-menu {
+        position: static !important;
+        box-shadow: none !important;
+        display: none;
+        padding-left: 1rem;
+        background: #f5f5f5;
+    }
+
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+
     .mobile-menu-toggle {
+        display: block;
+    }
+
+    .bio-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .bio-grid img {
+        width: 220px !important;
+        margin: 0 auto;
         display: block;
     }
     
