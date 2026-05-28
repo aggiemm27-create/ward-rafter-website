@@ -191,6 +191,18 @@ img {
     color: var(--color-accent);
 }
 
+.nav-phone {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-primary) !important;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.nav-phone:hover {
+    color: var(--color-accent) !important;
+}
+
 .nav-btn-portal {
     background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
     color: var(--color-primary);
