@@ -35,6 +35,14 @@
                 <li style="display:none;"><a href="blog.html">Insights</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="tel:9083121517" class="nav-phone">908-312-1517</a></li>
+                <li>
+                    <div class="nav-search-wrap" id="navSearchWrap">
+                        <button class="nav-search-btn" id="navSearchBtn" aria-label="Search">&#9906;</button>
+                        <div class="nav-search-box" id="navSearchBox">
+                            <input type="text" id="navSearchInput" placeholder="Search…" aria-label="Search site" />
+                        </div>
+                    </div>
+                </li>
                 <li><a href="https://ward-rafter.mycase.com" class="nav-btn-portal" target="_blank">Client Portal</a></li>
             </ul>
         </div>
@@ -166,7 +174,30 @@
         </div>
     </footer>
 
+    <script src="search-index.js"></script>
     <script>
+        // Navbar search
+        var navBtn = document.getElementById("navSearchBtn");
+        var navBox = document.getElementById("navSearchBox");
+        var navInput = document.getElementById("navSearchInput");
+        if (navBtn && navBox && navInput) {
+            navBtn.addEventListener("click", function(e) {
+                e.stopPropagation();
+                navBox.classList.toggle("open");
+                if (navBox.classList.contains("open")) navInput.focus();
+            });
+            navInput.addEventListener("keydown", function(e) {
+                if (e.key === "Enter") {
+                    var val = navInput.value.trim();
+                    if (val) window.location.href = "search.html?q=" + encodeURIComponent(val);
+                }
+            });
+            document.addEventListener("click", function(e) {
+                if (!navBtn.contains(e.target) && !navBox.contains(e.target)) {
+                    navBox.classList.remove("open");
+                }
+            });
+        }
         // Mobile hamburger menu
         const toggle = document.querySelector(".mobile-menu-toggle");
         const menu = document.querySelector(".navbar-menu");
