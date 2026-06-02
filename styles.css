@@ -185,6 +185,7 @@ img {
     letter-spacing: 0.3px;
     padding: var(--spacing-xs) 0;
     color: var(--color-secondary);
+    white-space: nowrap;
 }
 
 .navbar-menu a:hover {
