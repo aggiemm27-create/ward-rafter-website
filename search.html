@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="search-index.js"></script>
     <style>
         .search-results-hero {
             background: var(--color-primary);
@@ -142,9 +141,10 @@
 
     <div class="search-results-hero">
         <h1>Search Results</h1>
-        <form class="search-results-form" id="searchForm">
-            <input type="text" id="searchInput" placeholder="Search the site…" autocomplete="off" />
-            <button type="submit">&#9906;</button>
+        <!-- FIX: action + method + name="q" make the form work natively without relying on JS -->
+        <form class="search-results-form" id="searchForm" action="search.html" method="get">
+            <input type="text" id="searchInput" name="q" placeholder="Search the site…" autocomplete="off" />
+            <button type="submit">🔍</button>
         </form>
     </div>
 
@@ -186,8 +186,10 @@
         </div>
     </footer>
 
+    <!-- search-index.js loaded here so DOM is ready and any load error won't break the page -->
+    <script src="search-index.js"></script>
     <script>
-        // ── Run search from URL parameter ──────────────────────────────
+        // ── Search results ─────────────────────────────────────────────
         function getQuery() {
             var params = new URLSearchParams(window.location.search);
             return (params.get("q") || "").trim();
@@ -203,11 +205,19 @@
         function runSearch(query) {
             var list = document.getElementById("resultsList");
             var count = document.getElementById("resultsCount");
+            if (!list || !count) return;
             list.innerHTML = "";
 
             if (!query) {
                 count.textContent = "";
                 list.innerHTML = "<div class='search-no-results'><p>Enter a search term above.</p></div>";
+                return;
+            }
+
+            // FIX: Guard against search-index.js failing to load
+            if (typeof searchIndex === "undefined" || !Array.isArray(searchIndex)) {
+                count.textContent = "";
+                list.innerHTML = "<div class='search-no-results'><p>Search index unavailable. Please try again shortly.</p></div>";
                 return;
             }
 
@@ -226,12 +236,12 @@
             results.sort(function(a, b) { return b.score - a.score; });
 
             if (results.length === 0) {
-                count.textContent = "No results for "" + query + """;
+                count.textContent = "No results for \u201c" + query + "\u201d";
                 list.innerHTML = "<div class='search-no-results'><p>No pages matched your search.</p><p>Try different keywords, or <a href='contact.html'>contact us</a> directly.</p></div>";
                 return;
             }
 
-            count.textContent = results.length + " result" + (results.length === 1 ? "" : "s") + " for "" + query + """;
+            count.textContent = results.length + " result" + (results.length === 1 ? "" : "s") + " for \u201c" + query + "\u201d";
 
             results.forEach(function(r) {
                 var p = r.page;
@@ -245,19 +255,13 @@
             });
         }
 
-        // On page load
+        // Run search on page load from URL parameter
         var q = getQuery();
-        if (q) document.getElementById("searchInput").value = q;
+        var searchInput = document.getElementById("searchInput");
+        if (searchInput && q) searchInput.value = q;
         runSearch(q);
 
-        // Re-search on form submit
-        document.getElementById("searchForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-            var val = document.getElementById("searchInput").value.trim();
-            if (val) window.location.href = "search.html?q=" + encodeURIComponent(val);
-        });
-
-        // ── Navbar search (same as all other pages) ────────────────────
+        // ── Navbar search ──────────────────────────────────────────────
         var navBtn = document.getElementById("navSearchBtn");
         var navBox = document.getElementById("navSearchBox");
         var navInput = document.getElementById("navSearchInput");
@@ -281,8 +285,8 @@
         }
 
         // ── Mobile hamburger ───────────────────────────────────────────
-        const toggle = document.querySelector(".mobile-menu-toggle");
-        const menu = document.querySelector(".navbar-menu");
+        var toggle = document.querySelector(".mobile-menu-toggle");
+        var menu = document.querySelector(".navbar-menu");
         if (toggle && menu) {
             toggle.addEventListener("click", function() { menu.classList.toggle("active"); });
         }
@@ -292,7 +296,7 @@
             });
         });
         document.querySelectorAll(".navbar-menu a:not(.dropdown > a)").forEach(function(link) {
-            link.addEventListener("click", function() { menu.classList.remove("active"); });
+            link.addEventListener("click", function() { if (menu) menu.classList.remove("active"); });
         });
     </script>
 </body>
