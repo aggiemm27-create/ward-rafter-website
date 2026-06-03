@@ -621,7 +621,7 @@ img {
 }
 
 .attorney-card {
-    text-align: left;
+    text-align: center;
     background: var(--color-white);
     padding: var(--spacing-xl);
     border-radius: var(--border-radius);
@@ -639,11 +639,12 @@ img {
     height: 180px;
     border-radius: 50%;
     background: var(--color-light);
-    margin-bottom: var(--spacing-md);
+    margin: 0 auto var(--spacing-md) auto;
     border: 3px solid var(--color-accent);
     object-fit: cover;
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
+    display: block;
 }
 
 .attorney-card:hover .attorney-image {
