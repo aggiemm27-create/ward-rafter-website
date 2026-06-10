@@ -159,10 +159,11 @@ img {
 
 .navbar-logo {
     font-family: var(--font-primary);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--color-primary);
     letter-spacing: 0.5px;
+    white-space: nowrap;
     transition: all 0.3s ease;
 }
 
