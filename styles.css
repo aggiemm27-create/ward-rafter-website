@@ -158,16 +158,66 @@ img {
 }
 
 .navbar-logo {
-    font-family: var(--font-primary);
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--color-primary);
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
 }
 
 .navbar-logo:hover {
-    color: var(--color-accent);
+    opacity: 0.85;
+}
+
+.navbar-logo-crop {
+    width: 130px;
+    height: 44px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-logo-img {
+    width: 190px;
+    max-width: none;
+    margin: -18px -30px;
+    display: block;
+}
+
+/* ===== FOOTER LOGO ===== */
+.footer-logo-crop {
+    width: 160px;
+    height: 56px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.footer-logo-img {
+    width: 230px;
+    max-width: none;
+    margin: -20px -35px;
+    display: block;
+}
+
+/* ===== HERO LOGO ===== */
+.hero-logo-crop {
+    width: 280px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+}
+
+.hero-logo-img {
+    width: 400px;
+    max-width: none;
+    margin: -38px -60px;
+    display: block;
+    filter: drop-shadow(0 2px 12px rgba(0,0,0,0.35));
 }
 
 .navbar-menu {
