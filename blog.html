@@ -47,6 +47,12 @@
                 <h2 style="font-size: 13px; font-weight: 600; color: var(--color-accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--color-accent);">Condominium &amp; HOA Law</h2>
                 <div class="blog-grid">
                     <div class="blog-card">
+                        <p class="blog-date">July 24, 2026</p>
+                        <h3 class="blog-title"><a href="blog-condo-007.html">When a Fence Crosses the Line: HOA Boards and Common Element Encroachments</a></h3>
+                        <p class="blog-excerpt">A fence, a shed, or a paved patio can look harmless until it sits on land the association actually owns. Here is what New York HOA boards need to understand when a homeowner builds where they should not.</p>
+                        <a href="blog-condo-007.html" style="display: inline-block; margin-top: 1rem; font-size: 13px; font-weight: 600; color: var(--color-accent); letter-spacing: 0.03em;">Read More &rarr;</a>
+                    </div>
+                    <div class="blog-card">
                         <p class="blog-date">July 22, 2026</p>
                         <h3 class="blog-title"><a href="blog-condo-006.html">The Six-Year Clock on Common Charge Liens: What New York Condo and HOA Boards Should Know</a></h3>
                         <p class="blog-excerpt">A common charge lien in New York generally lasts six years, but that does not mean an old arrears balance simply disappears. Here is how the timeline actually works, and why the countdown runs differently than most boards expect.</p>
@@ -63,12 +69,6 @@
                         <h3 class="blog-title"><a href="blog-condo-004.html">When a Foreclosure Makes Sense, and When It Does Not: A Guide for Condo and HOA Boards</a></h3>
                         <p class="blog-excerpt">Foreclosure is one of the most powerful tools available to a condo or HOA board, but it is also one of the most expensive and time-consuming. A new 2025 law adds a mandatory 90-day notice requirement before any action can be filed. Here is what boards need to weigh before pulling the trigger.</p>
                         <a href="blog-condo-004.html" style="display: inline-block; margin-top: 1rem; font-size: 13px; font-weight: 600; color: var(--color-accent); letter-spacing: 0.03em;">Read More &rarr;</a>
-                    </div>
-                    <div class="blog-card">
-                        <p class="blog-date">June 2, 2026</p>
-                        <h3 class="blog-title"><a href="blog-condo-001.html">Local Law 97 Is Now in Effect: What NYC Condo and Co-op Boards Need to Know</a></h3>
-                        <p class="blog-excerpt">NYC's most ambitious building emissions law has moved from planning to active penalty enforcement. Fines of $268 per metric ton are now being assessed, and many boards may not realize they are already on the hook for 2026 filings.</p>
-                        <a href="blog-condo-001.html" style="display: inline-block; margin-top: 1rem; font-size: 13px; font-weight: 600; color: var(--color-accent); letter-spacing: 0.03em;">Read More &rarr;</a>
                     </div>
                 </div>
                 <div style="margin-top: 1.25rem; text-align: right;">
@@ -149,6 +149,12 @@
                 <h2 style="font-size: 13px; font-weight: 600; color: var(--color-accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.25rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--color-accent);">Real Estate</h2>
                 <div class="blog-grid">
                     <div class="blog-card">
+                        <p class="blog-date">July 28, 2026</p>
+                        <h3 class="blog-title"><a href="blog-re-005.html">The Silent Deadline: How an Ignored Encroachment Can Become a Legal Right in New York</a></h3>
+                        <p class="blog-excerpt">That fence sitting a few feet over the property line might not seem urgent today. Give it enough time, and New York law could quietly turn it into your neighbor's land.</p>
+                        <a href="blog-re-005.html" style="display: inline-block; margin-top: 1rem; font-size: 13px; font-weight: 600; color: var(--color-accent); letter-spacing: 0.03em;">Read More &rarr;</a>
+                    </div>
+                    <div class="blog-card">
                         <p class="blog-date">July 17, 2026</p>
                         <h3 class="blog-title"><a href="blog-re-004.html">Believing It's Yours Isn't Enough: A Staten Island Case Shows What Adverse Possession Actually Requires</a></h3>
                         <p class="blog-excerpt">A Staten Island property dispute reached the Appellate Division this spring, and the plaintiffs lost their adverse possession claim before the case ever got to trial. The reason why offers a real lesson in how New York courts scrutinize these claims, and how a poorly drafted pleading can sink a case on its own.</p>
@@ -172,6 +178,9 @@
                         <p class="blog-excerpt">Co-owning property in New York can start with the best intentions. But when co-owners disagree on whether to sell, hold, or manage a property, the courts may be the only way forward. Here is what a partition action looks like and when it becomes necessary.</p>
                         <a href="blog-re-001.html" style="display: inline-block; margin-top: 1rem; font-size: 13px; font-weight: 600; color: var(--color-accent); letter-spacing: 0.03em;">Read More &rarr;</a>
                     </div>
+                </div>
+                <div style="margin-top: 1.25rem; text-align: right;">
+                    <a href="blog-archive-re.html" style="font-size: 13px; font-weight: 600; color: var(--color-accent); letter-spacing: 0.03em;">View All Real Estate Articles &rarr;</a>
                 </div>
             </div>
 
@@ -218,43 +227,8 @@
 
         </div>
     </section>
+
     <div id="footer-placeholder"></div>
-    <script>
-        var navBtn = document.getElementById("navSearchBtn");
-        var navBox = document.getElementById("navSearchBox");
-        var navInput = document.getElementById("navSearchInput");
-        if (navBtn && navBox && navInput) {
-            navBtn.addEventListener("click", function(e) {
-                e.stopPropagation();
-                navBox.classList.toggle("open");
-                if (navBox.classList.contains("open")) navInput.focus();
-            });
-            navInput.addEventListener("keydown", function(e) {
-                if (e.key === "Enter") {
-                    var val = navInput.value.trim();
-                    if (val) window.location.href = "search.html?q=" + encodeURIComponent(val);
-                }
-            });
-            document.addEventListener("click", function(e) {
-                if (!navBtn.contains(e.target) && !navBox.contains(e.target)) {
-                    navBox.classList.remove("open");
-                }
-            });
-        }
-        const toggle = document.querySelector(".mobile-menu-toggle");
-        const menu = document.querySelector(".navbar-menu");
-        if (toggle && menu) {
-            toggle.addEventListener("click", function() { menu.classList.toggle("active"); });
-        }
-        document.querySelectorAll(".navbar-menu .dropdown > a").forEach(function(link) {
-            link.addEventListener("click", function(e) {
-                if (window.innerWidth <= 768) { e.preventDefault(); this.parentElement.classList.toggle("open"); }
-            });
-        });
-        document.querySelectorAll(".navbar-menu a:not(.dropdown > a)").forEach(function(link) {
-            link.addEventListener("click", function() { menu.classList.remove("active"); });
-        });
-    </script>
     <script>
         function loadInclude(id, file, callback) {
             fetch(file)
@@ -265,7 +239,6 @@
                 });
         }
         loadInclude('navbar-placeholder', 'navbar.html', function() {
-            // Mobile hamburger menu
             var toggle = document.querySelector(".mobile-menu-toggle");
             var menu = document.querySelector(".navbar-menu");
             if (toggle && menu) {
@@ -279,7 +252,6 @@
             document.querySelectorAll(".navbar-menu a:not(.dropdown > a)").forEach(function(link) {
                 link.addEventListener("click", function() { menu.classList.remove("active"); });
             });
-            // Navbar search
             var navBtn = document.getElementById("navSearchBtn");
             var navBox = document.getElementById("navSearchBox");
             var navInput = document.getElementById("navSearchInput");
@@ -301,7 +273,6 @@
                     }
                 });
             }
-            // Navbar scroll effect
             var navbar = document.getElementById('navbar');
             if (navbar) {
                 var navbarScroll = function() {
